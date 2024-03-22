@@ -4,7 +4,9 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import perri.dao.CatalogoDAO;
+import perri.entities.Catalogo;
 
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -44,6 +46,11 @@ public class Application {
 //        List<Catalogo> libroDaAutore = catDAO.getByAuthor("Abra");
 //        System.out.println("RICHERCA ELEMENTI IN ARICHIVIO TRAMITE AUTORE: ");
 //        libroDaAutore.forEach(System.out::println);
+
+        List<Catalogo> elementoDaParteDiTitolo = catDAO.getByTitle("ymi");
+        System.out.println("RICHERCA ELEMENTI IN ARICHIVIO TRAMITE PARTE DI TITOLO: ");
+        elementoDaParteDiTitolo.forEach(System.out::println);
+
 
         em.close();
         emFactory.close();

@@ -104,12 +104,11 @@ public class CatalogoDAO {
         return q.getResultList();
     }
 
-//
-//    public List<PartitaDiCalcio> getPartiteVinteInCasa() {
-//        TypedQuery<PartitaDiCalcio> p = em.createNamedQuery("getPartiteVinteInCasa", PartitaDiCalcio.class);
-//        return p.getResultList();
-//    }
-//
+    public List<Catalogo> getByTitle(String titolo) {
+        TypedQuery<Catalogo> q = em.createQuery("SELECT c FROM Catalogo c WHERE c.titolo LIKE :titolo", Catalogo.class);
+        q.setParameter("titolo", "%" + titolo + "%");
+        return q.getResultList();
+    }
 
     public void visualizzaCatalogo() {
         TypedQuery<Catalogo> query = em.createQuery("SELECT c FROM Catalogo c", Catalogo.class);
