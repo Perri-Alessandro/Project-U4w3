@@ -3,6 +3,7 @@ package perri.dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
+import perri.entities.Prestito;
 import perri.entities.Utente;
 import perri.exceptions.NotFoundException;
 
@@ -16,15 +17,15 @@ public class PrestitoDAO {
         this.em = em;
     }
 
-    public void saveUtente(Utente user) {
+    public void savePrestito(Prestito prestito) {
         try {
             em.getTransaction().begin();
-            em.persist(user);
+            em.persist(prestito);
             em.getTransaction().commit();
 
-            System.out.println("UTENTE SALVATO CORRETTAMENTE: " + user);
+            System.out.println("PRESTITO SALVATO CORRETTAMENTE: " + prestito);
         } catch (NotFoundException e) {
-            System.err.println("ERRORE NEL SALVARE L'UTENTE: " + e.getMessage());
+            System.err.println("ERRORE NEL SALVARE IL PRESTITO: " + e.getMessage());
         }
     }
 

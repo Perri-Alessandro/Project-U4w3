@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="646a3cfa-466b-489c-b669-6afb83304dd1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/perri/dao/PrestitoDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/perri/dao/UtenteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/perri/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/perri/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/perri/dao/PrestitoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/perri/dao/PrestitoDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

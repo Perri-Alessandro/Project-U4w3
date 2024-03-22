@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import perri.dao.CatalogoDAO;
+import perri.dao.PrestitoDAO;
 import perri.dao.UtenteDAO;
 import perri.entities.Prestito;
 
@@ -22,6 +23,7 @@ public class Application {
         EntityManager em = emFactory.createEntityManager();
         CatalogoDAO catDAO = new CatalogoDAO(em);
         UtenteDAO userDAO = new UtenteDAO(em);
+        PrestitoDAO prestDAO = new PrestitoDAO(em);
 
         System.out.println("------------------------------------- ARCHIVIO BIBLIOTECA -----------------------------------");
 
@@ -61,8 +63,12 @@ public class Application {
         // CREAZIONE PRESTITI
         Prestito primo = new Prestito(userDAO.getByNumeroTessera(1), catDAO.getByIsbn(452), LocalDate.of(2024, 2, 8), LocalDate.of(2024, 3, 15), null);
         System.out.println("PRESTITO EFFETTUATO : " + primo);
+        Prestito secondo = new Prestito(userDAO.getByNumeroTessera(3), catDAO.getByIsbn(402), LocalDate.of(2024, 3, 2), LocalDate.of(2024, 4, 20), null);
+        System.out.println("PRESTITO EFFETTUATO : " + secondo);
+        prestDAO.savePrestito(primo);
+        prestDAO.savePrestito(secondo);
 
-        
+
         em.close();
         emFactory.close();
         sc.close();
