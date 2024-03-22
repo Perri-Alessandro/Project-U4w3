@@ -32,6 +32,15 @@ public class PrestitoDAO {
         return elemento;
     }
 
+    public List<Prestito> trovaPrestitiAttiviPerUtente(long numeroTessera) {
+        TypedQuery<Prestito> query = em.createQuery(
+                "SELECT p FROM Prestito p WHERE p.utente.numeroTessera = :numeroTessera AND p.restituzioneEffettiva IS NULL",
+                Prestito.class);
+        query.setParameter("numeroTessera", numeroTessera);
+        return query.getResultList();
+    }
+
+
     public void delete(long id) {
         try {
             Prestito trovato = this.getById(id);
