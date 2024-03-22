@@ -25,7 +25,7 @@ public class Application {
 //        List<Catalogo> archivioIniziale = catDAO.creaArchivioIniziale();
 //        catDAO.save(archivioIniziale);
 
-        catDAO.visualizzaCatalogo();
+//        catDAO.visualizzaCatalogo();
 
         em.close();
         emFactory.close();
