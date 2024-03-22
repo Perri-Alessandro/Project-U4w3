@@ -36,11 +36,18 @@ public class PrestitoDAO {
     }
 
     public List<Prestito> prestitiAttiviPerUtente(long numeroTessera) {
-        TypedQuery<Prestito> query = em.createQuery(
+        TypedQuery<Prestito> q = em.createQuery(
                 "SELECT p FROM Prestito p WHERE p.utente.numeroTessera = :numeroTessera AND p.restituzioneEffettiva IS NULL",
                 Prestito.class);
-        query.setParameter("numeroTessera", numeroTessera);
-        return query.getResultList();
+        q.setParameter("numeroTessera", numeroTessera);
+        return q.getResultList();
+    }
+
+    public List<Prestito> prestitiScaduti() {
+        TypedQuery<Prestito> q = em.createQuery(
+                "SELECT p FROM Prestito p WHERE p.restituzioneEffettiva IS NULL AND p.restituzionePrevista < CURRENT_DATE",
+                Prestito.class);
+        return q.getResultList();
     }
 
 

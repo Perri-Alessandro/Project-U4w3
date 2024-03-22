@@ -6,9 +6,7 @@ import jakarta.persistence.Persistence;
 import perri.dao.CatalogoDAO;
 import perri.dao.PrestitoDAO;
 import perri.dao.UtenteDAO;
-import perri.entities.Prestito;
 
-import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -61,16 +59,21 @@ public class Application {
 //        userDAO.visualizzaUtenti();
 
         // CREAZIONE PRESTITI
-//        Prestito primo = new Prestito(userDAO.getByNumeroTessera(1), catDAO.getByIsbn(452), LocalDate.of(2024, 2, 8), LocalDate.of(2024, 3, 15), null);
-//        System.out.println("PRESTITO EFFETTUATO : " + primo);
-//        Prestito secondo = new Prestito(userDAO.getByNumeroTessera(3), catDAO.getByIsbn(402), LocalDate.of(2024, 3, 2), LocalDate.of(2024, 4, 20), null);
-//        System.out.println("PRESTITO EFFETTUATO : " + secondo);
-//        prestDAO.savePrestito(primo);
-//        prestDAO.savePrestito(secondo);
+//        Prestito terzo = new Prestito(userDAO.getByNumeroTessera(1), catDAO.getByIsbn(305), LocalDate.of(2024, 1, 8), LocalDate.of(2024, 3, 10), null);
+//        System.out.println("PRESTITO EFFETTUATO : " + terzo);
+//        Prestito quarto = new Prestito(userDAO.getByNumeroTessera(7), catDAO.getByIsbn(155), LocalDate.of(2024, 2, 2), LocalDate.of(2024, 3, 8), null);
+//        System.out.println("PRESTITO EFFETTUATO : " + quarto);
+//        prestDAO.savePrestito(terzo);
+//        prestDAO.savePrestito(quarto);
 
-        //RICERCA PRESTITI ATTIVI
-        List<Prestito> prestitiAttivi = prestDAO.prestitiAttiviPerUtente(1);
-        System.out.println("PRESTITI ATTIVI PER UTENTE CERCATO; " + prestitiAttivi);
+//        //RICERCA PRESTITI ATTIVI
+//        List<Prestito> prestitiAttivi = prestDAO.prestitiAttiviPerUtente(1);
+//        System.out.println("PRESTITI ATTIVI PER UTENTE CERCATO; " + prestitiAttivi);
+
+//        RICERCA PRESTITI SCADUTI MA NON RESTITUITI
+//        List<Prestito> prestitisìScaduti = prestDAO.prestitiScaduti();
+//        System.out.println("PRESTITI SCADUTI MA NON RESTITUITI; " + prestitisìScaduti);
+
 
         em.close();
         emFactory.close();
