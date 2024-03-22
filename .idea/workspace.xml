@@ -7,8 +7,11 @@
     <list default="true" id="646a3cfa-466b-489c-b669-6afb83304dd1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/perri/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/perri/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/perri/dao/CatalogoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/perri/dao/CatalogoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/perri/dao/GestioneCatalogo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/perri/entities/Catalogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/perri/entities/Catalogo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/perri/entities/Prestito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/perri/entities/Prestito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/perri/entities/Utente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/perri/entities/Utente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/perri/exceptions/NotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/perri/exceptions/NotFoundException.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,18 +41,18 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Application.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/perri/OneDrive/Desktop/Epicode/Corso/Back End/Project U4w3",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "actions.on.save"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/perri/OneDrive/Desktop/Epicode/Corso/Back End/Project U4w3&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

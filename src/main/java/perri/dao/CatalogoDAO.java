@@ -2,11 +2,13 @@ package perri.dao;
 
 import com.github.javafaker.Faker;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 import perri.entities.Catalogo;
 import perri.entities.Libro;
 import perri.entities.Periodicità;
 import perri.entities.Rivista;
+import perri.exceptions.NotFoundException;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -39,56 +41,75 @@ public class CatalogoDAO {
         return archivio;
     }
 
-    public void save(List<Catalogo> archivio) {
-        em.getTransaction().begin();
-        for (Catalogo catalogo : archivio) {
-            em.persist(catalogo);
-        }
-        em.getTransaction().commit();
+    public void saveCat(List<Catalogo> archivio) {
+        try {
+            em.getTransaction().begin();
+            for (Catalogo catalogo : archivio) {
+                em.persist(catalogo);
+            }
+            em.getTransaction().commit();
 
-        System.out.println("ELEMENTO " + archivio + " SALVATO CORRETTAMENTE");
+            System.out.println("ARCHIVIO " + archivio + " SALVATO CORRETTAMENTE");
+        } catch (NotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-//    public Evento getById(long id) {
-//        Evento evento = em.find(Evento.class, id);
-//        if (evento == null) throw new NotFoundException(id);
-//        return evento;
-//    }
-//
-//    public void delete(long id) {
-//        Evento trovato = this.getById(id);
-//
-//        EntityTransaction tx = em.getTransaction();
-//
-//        tx.begin();
-//
-//        em.remove(trovato);
-//
-//        tx.commit();
-//
-//        System.out.println("EVENTO " + trovato.getTitolo() + " ELIMINATO CON SUCCESSO");
-//    }
-//
-//    public List<Boolean> getConcertiStreaming() {
-//        TypedQuery<Boolean> query = em.createQuery("SELECT c.streaming FROM Concerto c", Boolean.class);
-//        return query.getResultList();
-//    }
-//
-//    public List<Concerto> getConcertiGenere(ConcertoType genere) {
-//        TypedQuery<Concerto> q = em.createQuery("SELECT c FROM Concerto c WHERE c.genere = :genere", Concerto.class);
-//        q.setParameter("genere", genere);
-//        return q.getResultList();
-//    }
+    public void saveElement(Catalogo elemento) {
+        try {
+            em.getTransaction().begin();
+            em.persist(elemento);
+            em.getTransaction().commit();
+
+            System.out.println("ELEMENTO SALVATO CORRETTAMENTE: " + elemento);
+        } catch (NotFoundException e) {
+            System.err.println("ERRORE NEL SALVARE L'ELEMENTO: " + e.getMessage());
+        }
+    }
+
+
+    public Catalogo getByIsbn(long codiceIsbn) {
+        Catalogo elemento = em.find(Catalogo.class, codiceIsbn);
+        if (elemento == null) throw new NotFoundException(codiceIsbn);
+        return elemento;
+    }
+
+    public void delete(long codiceIsbn) {
+        try {
+            Catalogo trovato = this.getByIsbn(codiceIsbn);
+
+            EntityTransaction tx = em.getTransaction();
+
+            tx.begin();
+
+            em.remove(trovato);
+
+            tx.commit();
+
+            System.out.println("ELEMENTO " + trovato.getTitolo() + " ELIMINATO CON SUCCESSO");
+        } catch (NotFoundException e) {
+            System.err.println("ERRORE NEL CANCELLARE L'ELEMENTO: " + e.getMessage());
+        }
+    }
+
+    public List<Catalogo> elementoDaData(int anno) {
+        TypedQuery<Catalogo> q = em.createQuery("SELECT c FROM Catalogo c WHERE EXTRACT(YEAR FROM c.annoDiPubblicazione) = :anno", Catalogo.class);
+        q.setParameter("anno", anno);
+        return q.getResultList();
+    }
+
+    public List<Catalogo> getByAuthor(String author) {
+        TypedQuery<Catalogo> q = em.createQuery("SELECT c FROM Catalogo c WHERE c.autore = :author", Catalogo.class);
+        q.setParameter("author", author);
+        return q.getResultList();
+    }
+
 //
 //    public List<PartitaDiCalcio> getPartiteVinteInCasa() {
 //        TypedQuery<PartitaDiCalcio> p = em.createNamedQuery("getPartiteVinteInCasa", PartitaDiCalcio.class);
 //        return p.getResultList();
 //    }
 //
-//    public List<PartitaDiCalcio> getPartiteVinteInTrasferta() {
-//        TypedQuery<PartitaDiCalcio> p = em.createNamedQuery("getPartiteVinteInTrasferta", PartitaDiCalcio.class);
-//        return p.getResultList();
-//    }
 
     public void visualizzaCatalogo() {
         TypedQuery<Catalogo> query = em.createQuery("SELECT c FROM Catalogo c", Catalogo.class);

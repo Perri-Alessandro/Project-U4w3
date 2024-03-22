@@ -21,11 +21,29 @@ public class Application {
 
         System.out.println("------------------------------------- ARCHIVIO BIBLIOTECA -----------------------------------");
 
-//        CREAZIONE INIZIALE ARCHIVIO: (decommentare a primo avvio e ricommentare dopo 1^ esecuzione)
+//        CREAZIONE ARCHIVIO INIZIALE:
 //        List<Catalogo> archivioIniziale = catDAO.creaArchivioIniziale();
-//        catDAO.save(archivioIniziale);
+//        catDAO.saveCat(archivioIniziale);
 
-//        catDAO.visualizzaCatalogo();
+        //        catDAO.visualizzaCatalogo();
+
+//      CREAZIONE NUOVO ELEMENTO IN ARICHIVIO:
+//        Catalogo nuovoElemento = new Libro("Halving 2024", LocalDate.of(2024, 4, 16), 257, "Mew", "Storia");
+//        catDAO.saveElement(nuovoElemento);
+
+//         ELIMINAZIONE ELEMENTO IN ARICHIVIO TRAMITE ISBN:
+//        catDAO.delete(355);
+
+//        RICHERCA ELEMENTO IN ARICHIVIO TRAMITE ISBN:
+//        System.out.println("ELEMENTO CERCATO: " + catDAO.getByIsbn(402).getTitolo());
+
+//        List<Catalogo> elementiPerAnno = catDAO.elementoDaData(2022);
+//        System.out.println("RICHERCA ELEMENTI IN ARICHIVIO TRAMITE DATA DI PUBBLICAZIONE: ");
+//        elementiPerAnno.forEach(System.out::println);
+
+//        List<Catalogo> libroDaAutore = catDAO.getByAuthor("Abra");
+//        System.out.println("RICHERCA ELEMENTI IN ARICHIVIO TRAMITE AUTORE: ");
+//        libroDaAutore.forEach(System.out::println);
 
         em.close();
         emFactory.close();

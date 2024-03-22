@@ -1,15 +1,15 @@
 package perri.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
 public class Prestito {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected long id;
     @ManyToOne
     @JoinColumn(name = "id_utente")
     protected Utente utente;
@@ -27,7 +27,6 @@ public class Prestito {
     public Prestito() {
     }
 
-    ;
 
     public Prestito(Utente utente, Catalogo elementoPrestato, LocalDate inizioPrestito, LocalDate restituzionePrevista, LocalDate restituzioneEffettiva) {
         this.utente = utente;

@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public abstract class Catalogo {
     @Id
     @GeneratedValue
-    protected int codiceIsbn;
+    protected long codiceIsbn;
     protected String titolo;
 
     protected LocalDate annoDiPubblicazione;
@@ -30,7 +30,7 @@ public abstract class Catalogo {
     }
 
 
-    public int getCodiceIsbn() {
+    public long getCodiceIsbn() {
         return codiceIsbn;
     }
 
