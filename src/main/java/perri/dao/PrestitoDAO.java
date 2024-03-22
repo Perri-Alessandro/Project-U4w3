@@ -2,8 +2,11 @@ package perri.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
 import perri.entities.Prestito;
 import perri.exceptions.NotFoundException;
+
+import java.util.List;
 
 public class PrestitoDAO {
 
@@ -32,7 +35,7 @@ public class PrestitoDAO {
         return elemento;
     }
 
-    public List<Prestito> trovaPrestitiAttiviPerUtente(long numeroTessera) {
+    public List<Prestito> prestitiAttiviPerUtente(long numeroTessera) {
         TypedQuery<Prestito> query = em.createQuery(
                 "SELECT p FROM Prestito p WHERE p.utente.numeroTessera = :numeroTessera AND p.restituzioneEffettiva IS NULL",
                 Prestito.class);

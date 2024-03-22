@@ -8,7 +8,7 @@ import perri.dao.PrestitoDAO;
 import perri.dao.UtenteDAO;
 import perri.entities.Prestito;
 
-import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -61,13 +61,16 @@ public class Application {
 //        userDAO.visualizzaUtenti();
 
         // CREAZIONE PRESTITI
-        Prestito primo = new Prestito(userDAO.getByNumeroTessera(1), catDAO.getByIsbn(452), LocalDate.of(2024, 2, 8), LocalDate.of(2024, 3, 15), null);
-        System.out.println("PRESTITO EFFETTUATO : " + primo);
-        Prestito secondo = new Prestito(userDAO.getByNumeroTessera(3), catDAO.getByIsbn(402), LocalDate.of(2024, 3, 2), LocalDate.of(2024, 4, 20), null);
-        System.out.println("PRESTITO EFFETTUATO : " + secondo);
-        prestDAO.savePrestito(primo);
-        prestDAO.savePrestito(secondo);
+//        Prestito primo = new Prestito(userDAO.getByNumeroTessera(1), catDAO.getByIsbn(452), LocalDate.of(2024, 2, 8), LocalDate.of(2024, 3, 15), null);
+//        System.out.println("PRESTITO EFFETTUATO : " + primo);
+//        Prestito secondo = new Prestito(userDAO.getByNumeroTessera(3), catDAO.getByIsbn(402), LocalDate.of(2024, 3, 2), LocalDate.of(2024, 4, 20), null);
+//        System.out.println("PRESTITO EFFETTUATO : " + secondo);
+//        prestDAO.savePrestito(primo);
+//        prestDAO.savePrestito(secondo);
 
+        //RICERCA PRESTITI ATTIVI
+        List<Prestito> prestitiAttivi = prestDAO.prestitiAttiviPerUtente(1);
+        System.out.println("PRESTITI ATTIVI PER UTENTE CERCATO; " + prestitiAttivi);
 
         em.close();
         emFactory.close();
